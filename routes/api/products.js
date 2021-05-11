@@ -3,30 +3,30 @@ const express = require("express");
 var router = express.Router();
 const CreateProduct = require("./createProduct");
 let products = require("../../models/ProductModel");
-// let newProduct = CreateProduct(
-//   "Dell Laptop",
-//   "DELL Inspiron 3542 i7 6th generation",
-//   true,
-//   130000
-// );
-// let newProduct2 = CreateProduct(
-//   "Dell Laptop",
-//   "DELL Inspiron 3842 i5 8th generation",
-//   true,
-//   145500
-// );
-// let newProduct3 = CreateProduct(
-//   "Dell Laptop",
-//   "DELL Inspiron 5402 i5 11th generation",
-//   true,
-//   170500
-// );
-// let newProduct4 = CreateProduct(
-//   "HP Laptop",
-//   "HP Omen i5 11th generation",
-//   true,
-//   2020500
-// );
+let newProduct = CreateProduct(
+  "Dell Laptop",
+  "DELL Inspiron 3542 i7 6th generation",
+  true,
+  130000
+);
+let newProduct2 = CreateProduct(
+  "Dell Laptop",
+  "DELL Inspiron 3842 i5 8th generation",
+  true,
+  145500
+);
+let newProduct3 = CreateProduct(
+  "Dell Laptop",
+  "DELL Inspiron 5402 i5 11th generation",
+  true,
+  170500
+);
+let newProduct4 = CreateProduct(
+  "HP Laptop",
+  "HP Omen i5 11th generation",
+  true,
+  2020500
+);
 
 router.get("/", async (req, resp) => {
   await products.find({}, (error, results) => {
