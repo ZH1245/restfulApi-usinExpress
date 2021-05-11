@@ -7,7 +7,8 @@ const mongoose = require("mongoose");
 var indexRouter = require("./routes/index");
 var ProductRouter = require("./routes/api/products");
 var app = express();
-const CreateProduct = require("./routes/api/createProduct");
+const MONGO_PASSWORD = require("./secrets/mongopassword");
+require("dotenv").config();
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
@@ -25,8 +26,9 @@ var config = require("config");
 
 mongoose
   .connect(
-    config.get("db"),
+    // config.get("db"),
     //"mongodb://localhost/products",
+    process.env.Connection_String,
     { useNewUrlParser: true },
     { useUnifiedTopology: true }
   )
